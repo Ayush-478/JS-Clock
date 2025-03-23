@@ -1,0 +1,29 @@
+body{
+    margin-top: 50px;
+}
+
+.canvas{
+    border: 1px black solid;
+    width: 415px;
+    height: 415px;
+    position:absolute;
+    border-radius: 50%;
+    margin-left: 200px;
+    box-shadow: 8px 20px 40px rgb(61, 61, 63);
+}
+
+canvas{
+    margin-right: 200px;
+}
+
+input{
+    border: none;
+    height: 2rem;
+    width: 4rem;
+}
+
+button{
+    height: 2rem;
+    width: 4rem;
+    border: 1px solid black;
+}
