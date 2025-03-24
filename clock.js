@@ -1,4 +1,5 @@
-//30mins + 5,30 pm+
+//12,15 PM+
+
 
 const canvas = document.getElementById("canvas");
 const btn = document.getElementById("go");
@@ -109,8 +110,11 @@ function updateClock(){
         let time = TimeCalc.currenttimer;
         let angle = (time.hrs * pi/6) - pi/2;
 
-        let x = w/2 + ((len * 0.65) * Math.cos(angle));
-        let y = h/2 + ((len * .65) * Math.sin(angle));
+        let mins = time.mins;
+        angle += pi/6 * 5 * (mins/300);
+
+        let x = w/2 + ((len * 0.6) * Math.cos(angle));
+        let y = h/2 + ((len * .6) * Math.sin(angle));
 
         ctx.beginPath();
         ctx.strokeStyle = "pink";
@@ -124,8 +128,8 @@ function updateClock(){
         let time = TimeCalc.currenttimer;
         let angle = (time.mins * pi/30) - pi/2;
 
-        let x = w/2 + ((len * .80) * Math.cos(angle));
-        let y = h/2 + ((len * .80) * Math.sin(angle));
+        let x = w/2 + ((len * .75) * Math.cos(angle));
+        let y = h/2 + ((len * .75) * Math.sin(angle));
 
         ctx.beginPath();
         ctx.strokeStyle = "#ff073a";
@@ -200,6 +204,15 @@ hh.addEventListener('keydown', (e)=>{
     }
 })
 
-let apikey = "43578aa1a901dd079b5746d035a876bfef61be997f1a3a3429f38721";
+let now = new Date();
+let hours = now.getHours();
+let minutes = now.getMinutes();
+let seconds = now.getSeconds();
 
-fetch(`https://api.ipdata.co?api-key=${apikey}`).then((res)=>res.json()).then((res)=>{(setCurrentTime(res.time_zone.current_time))});
+console.log(`Current Time: ${hours}:${minutes}:${seconds}`);
+TimeCalc.currenttimer.edit(hours, minutes, seconds);
+
+
+//let apikey = "43578aa1a901dd079b5746d035a876bfef61be997f1a3a3429f38721";
+
+//fetch(`https://api.ipdata.co?api-key=${apikey}`).then((res)=>res.json()).then((res)=>{(setCurrentTime(res.time_zone.current_time))});
