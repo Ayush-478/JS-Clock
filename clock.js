@@ -1,15 +1,17 @@
-//12,15 PM+
-
+//01:50 PM+
 
 const canvas = document.getElementById("canvas");
 const btn = document.getElementById("go");
 const ctx = canvas.getContext("2d");
-const h = canvas.clientHeight;
-const w = canvas.clientWidth;
+const body = document.getElementsByTagName("body")[0];
+const div = document.getElementById("clockcont");
+const h = body.offsetHeight * .72;
+const w = h;
+div.setAttribute("style",`height: ${h-2}px; width : ${w-2}px`);
+canvas.height = h;
+canvas.width = w;
 
 ctx.fillStyle = "lavender";
-ctx.fillRect(0,0,canvas.clientHeight,canvas.clientWidth);
-
 const pi = Math.PI;
 const r = w/2;
 
